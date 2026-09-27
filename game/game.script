@@ -1,0 +1,12 @@
+local world = require("game.ecs.world")
+local evolved = require("lib.evolved")
+
+function init(self)
+	local fragments = require("game.ecs.fragments")
+	evolved.spawn({[fragments.POSITION_X] = 0})
+	
+end
+
+function update(self, dt)
+	evolved.process_with(world.GAME_GROUP, dt)
+end
