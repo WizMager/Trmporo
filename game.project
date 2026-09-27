@@ -21,4 +21,8 @@ scale_mode = stretch
 
 [project]
 title = Temporo
+dependencies#0 = https://github.com/defold/extension-photon-fusion/archive/refs/tags/1.0.1.zip
+
+[fusion]
+app_id = 
 

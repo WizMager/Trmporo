@@ -1,6 +1,8 @@
 local evolved = require("lib.evolved")
 
 function init(self)
+	local app_id = require "local.photon_app_id"
+	fusion.init(app_id, "1.0")
 	evolved.debug_mode(true)
 
 	local test_entity = evolved.id()
@@ -9,6 +11,7 @@ function init(self)
 	evolved.set(test_entity, test_fragment, 123)
 
 	print(string.format("Entity: %d, with fragment: %d, with value: %d", test_entity, test_fragment, evolved.get(test_entity, test_fragment)))
+	print(fusion.STATE_DISCONNECTED)
 end
 
 function final(self)
