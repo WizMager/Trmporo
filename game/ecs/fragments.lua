@@ -16,9 +16,14 @@ local VELOCITY_Y = evolved.builder()
     :name("VELOCITY_Y")
     :build()
 
+local INPUT = evolved.builder()
+	:name("INPUT")
+	:build()
+
 return {
     POSITION_X = POSITION_X,
     POSITION_Y = POSITION_Y,
     VELOCITY_X = VELOCITY_X,
-    VELOCITY_Y = VELOCITY_Y
+    VELOCITY_Y = VELOCITY_Y,
+    INPUT = INPUT
 }

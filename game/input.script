@@ -1,0 +1,60 @@
+local evolved = require("lib.evolved")
+local fragments = require("game.ecs.fragments")
+
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+
+	evolved.set(fragments.INPUT, fragments.INPUT, {
+		move_x = 0,
+		move_y = 0,
+		fire_pressed = false,
+		fire_held = false,
+		mouse_x = 0,
+		mouse_y = 0
+	})
+end
+
+
+function on_input(self, action_id, action)
+
+	local input = evolved.get(fragments.INPUT, fragments.INPUT)
+
+	if action_id == hash("left") then
+		if action.pressed then
+			input.move_x = -1
+		elseif action.released then
+			input.move_x = 0
+		end
+	elseif action_id == hash("right") then
+		if action.pressed then
+			input.move_x = 1
+		elseif action.released then
+			input.move_x = 0
+		end
+	elseif action_id == hash("up") then
+		if action.pressed then
+			input.move_y = -1
+		elseif action.released then
+			input.move_y = 0
+		end
+	elseif action_id == hash("down") then
+		if action.pressed then
+			input.move_y = 1
+		elseif action.released then
+			input.move_y = 0
+		end
+	elseif action_id == hash("fire") then
+		if action.pressed then
+			input.fire_pressed = true
+			input.fire_held = true
+		elseif action.released then
+			input.fire_held = false
+		end
+	end
+
+	if action.x ~= nil and action.y ~= nil then
+		input.mouse_x = action.x
+		input.mouse_y = action.y
+	end
+end

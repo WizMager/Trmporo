@@ -6,5 +6,9 @@ embedded_instances {
   "  id: \"game\"\n"
   "  component: \"/game/game.script\"\n"
   "}\n"
+  "components {\n"
+  "  id: \"input\"\n"
+  "  component: \"/game/input.script\"\n"
+  "}\n"
   ""
 }
